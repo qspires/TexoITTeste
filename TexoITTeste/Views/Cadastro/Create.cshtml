@@ -1,0 +1,117 @@
+﻿@model TexoITTeste.ViewModel.CidadeViewModel
+@{
+    ViewBag.Title = "Criar Cidade";
+}
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center m-t-lg">
+                <h1>
+                    @ViewData["SubTitle"]
+                </h1>
+                @if (ViewData["COLOR"] == "VERDE")
+                {
+                    <h3 class="text-success">@ViewData["Message"]</h3>
+                }
+                else
+                {
+                    <h3 class="text-danger">@ViewData["Message"]</h3>
+                }
+            </div>
+
+
+            @using (Html.BeginForm("Create", "Cadastro", FormMethod.Post, new { id = "EditForm", @class = "ibox-content" }))
+            {
+
+                @Html.ValidationSummary(true)
+
+                <fieldset>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            @*1º Linha*@
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="control-label">Código IBGE</label>
+                                        @Html.HiddenFor(m => m.UKEY, new { @class = "form-control", @maxlength = "20", @required = "required" })
+                                        @Html.EditorFor(m => m.CI_001_N, new { @class = "form-control", @required = "required" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="control-label">UF</label>
+                                        @Html.EditorFor(m => m.CI_002_C, new { @class = "form-control", @maxlength = "2", @required = "required" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Cidade</label>
+                                        @Html.EditorFor(m => m.CI_003_C, new { @class = "form-control", @maxlength = "70", @required = "required" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Cidade (sem acentuação)</label>
+                                        @Html.EditorFor(m => m.CI_007_C, new { @class = "form-control", @maxlength = "70" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Cidade (Nome Alternativo)</label>
+                                        @Html.EditorFor(m => m.CI_008_C, new { @class = "form-control", @maxlength = "70" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Micro Região</label>
+                                        @Html.EditorFor(m => m.CI_009_C, new { @class = "form-control", @maxlength = "70" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Região de ref.</label>
+                                        @Html.EditorFor(m => m.CI_010_C, new { @class = "form-control", @maxlength = "70" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="control-label">Capital</label>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    @Html.EditorFor(m => m.CI_004_L, new { @class = "checkbox-inline" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Longitude</label>
+                                        @Html.EditorFor(m => m.CI_005_C, new { @class = "form-control", @maxlength = "20", @required = "required" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Latitude</label>
+                                        @Html.EditorFor(m => m.CI_006_C, new { @class = "form-control", @maxlength = "20", @required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr />
+                            @*2º Linha*@
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <button class="btn btn-success" type="submit">Salvar</button>
+                                    @Html.ActionLink("Cancelar", "Index", "Cadastro", null, new { @class = "btn btn-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+            }
+        </div>
+    </div>
+</div>
