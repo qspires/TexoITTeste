@@ -237,5 +237,35 @@ namespace TexoITTeste.Manager
             return null;
         }
 
+
+        public DashBoardViewModel DashBoard()
+        {
+            DashBoardViewModel Model = new DashBoardViewModel();
+            try
+            {
+                daoCidade DaoCidade = new daoCidade();
+                List<CIDADE> ModelList = DaoCidade.GetAll();
+
+                ModelList
+                   .GroupBy(x => new { x.CI_002_C })
+                   .Select(x => new CidadesPorEstado { Estado = x.Key.CI_002_C, Total = x.GroupBy(z => z.CI_003_C).Count() })
+                   .ToList()
+                   .ForEach(x => Model.CidadesPorEstado.Add(x));
+                Model.CidadesPorEstado = Model.CidadesPorEstado.OrderByDescending(x => x.Total).ToList();
+
+
+                Model.Capitais = ModelList.Where(x => x.CI_004_L == true).Select(x => x.toCapitais()).OrderBy(x => x.Cidade).ToList();
+
+                Model.Total = ModelList.Count();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+
+            return Model;
+        }
+
     }
 }

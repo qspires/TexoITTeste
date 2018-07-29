@@ -1,4 +1,5 @@
-﻿@{
+﻿@model TexoITTeste.ViewModel.DashBoardViewModel
+@{
     ViewBag.Title = "TexoIT Teste";
 }
 
@@ -12,5 +13,118 @@
                 <small>@ViewData["Message"]</small>
             </div>
         </div>
+
+
+        <div class="col-lg-4">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Total de Cidades por UF</h5>
+                    <span class="label label-primary pull-right">&nbsp;</span>
+                </div>
+                <div class="ibox-content">
+                    <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="10">
+                        <thead>
+                            <tr>
+                                <th data-hide="phone">Uf</th>
+                                <th data-hide="phone">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null && Model.CidadesPorEstado != null)
+                            {
+
+                                foreach (var item in Model.CidadesPorEstado)
+                                {
+                                    <tr>
+
+                                        <td>
+                                            @item.Estado
+                                        </td>
+                                        <td>
+                                            @item.Total
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="7">
+                                    <ul class="pagination pull-right"></ul>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Capital por UF</h5>
+                    <span class="label label-info pull-right">&nbsp;</span>
+                </div>
+                <div class="ibox-content">
+                    <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="10">
+                        <thead>
+                            <tr>
+                                <th data-hide="phone">Uf</th>
+                                <th data-hide="phone">Capital</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null && Model.Capitais != null)
+                            {
+
+                                foreach (var item in Model.Capitais)
+                                {
+                                    <tr>
+
+                                        <td>
+                                            @item.Estado
+                                        </td>
+                                        <td>
+                                            @item.Cidade
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="7">
+                                    <ul class="pagination pull-right"></ul>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Total de Cidades</h5>
+                    <span class="label label-danger pull-right">&nbsp;</span>
+                </div>
+                <div class="ibox-content">
+                    <h1 class="no-margins">@Model.Total</h1>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+@Styles.Render("~/plugins/footableStyles")
+
+@section Scripts {
+    @Scripts.Render("~/plugins/footable")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('.footable').footable();
+
+        });
+    </script>
+}

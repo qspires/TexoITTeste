@@ -198,6 +198,7 @@
     </Compile>
     <Compile Include="Helpers\HMTLHelperExtensions.cs" />
     <Compile Include="Manager\managerCidade.cs" />
+    <Compile Include="Mapper\mapperDashBoard.cs" />
     <Compile Include="Mapper\mapperCidade.cs" />
     <Compile Include="Models\EFContext.cs" />
     <Compile Include="Models\CIDADE.cs" />
@@ -209,6 +210,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModel\DashBoardViewModel.cs" />
     <Compile Include="ViewModel\CidadeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -243,6 +245,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Image\texotIco.png" />
     <Content Include="Image\vaccine.png" />
     <Content Include="Scripts\app\inspinia.js" />
     <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.eot" />

@@ -63,6 +63,20 @@ namespace TexoITTeste.DAO
             }
         }
 
+        public List<CIDADE> GetAll()
+        {
+            try
+            {
+                List<CIDADE> ListModel = dbs.Cidade.ToList();
+                return ListModel;
+            }
+            catch (Exception ex)
+            {
+                ex.Message.ToString();
+                return null;
+            }
+        }
+
         public void Delete(string ukey)
         {
             try
