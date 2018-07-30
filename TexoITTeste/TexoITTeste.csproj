@@ -214,6 +214,10 @@
     <Compile Include="ViewModel\CidadeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\TexoITTeste.mdf" />
+    <Content Include="App_Data\TexoITTeste_log.ldf">
+      <DependentUpon>TexoITTeste.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\animate.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -371,7 +375,6 @@
     <Content Include="Views\Cadastro\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Arquivos\" />
   </ItemGroup>
   <ItemGroup>

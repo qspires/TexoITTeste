@@ -101,7 +101,50 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-4">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Maior e Menor UF</h5>
+                    <span class="label label-info pull-right">&nbsp;</span>
+                </div>
+                <div class="ibox-content">
+                    <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="10">
+                        <thead>
+                            <tr>
+                                <th data-hide="phone">Uf</th>
+                                <th data-hide="phone">Capital</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null && Model.EstadoMaiorMenor != null)
+                            {
+
+                                foreach (var item in Model.EstadoMaiorMenor)
+                                {
+                                    <tr>
+
+                                        <td>
+                                            @item.Estado
+                                        </td>
+                                        <td>
+                                            @item.Total
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="7">
+                                    <ul class="pagination pull-right"></ul>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>Total de Cidades</h5>

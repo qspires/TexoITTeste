@@ -79,7 +79,72 @@ namespace TexoITTeste.Filter
                 {
                     predicate = predicate.And(x => x.CI_004_L == false);
                 }
-              
+
+            }
+
+            return predicate;
+        }
+
+        public static Expression<Func<CIDADE, bool>> ToExpression(this CidadeFilterModel Filter)
+        {
+            Expression<Func<CIDADE, bool>> predicate = PredicateBuilder.True<CIDADE>();
+
+
+            if (!string.IsNullOrEmpty(Filter.UKEY))
+            {
+                predicate = predicate.And(x => x.UKEY == Filter.UKEY);
+                return predicate;
+            }
+
+
+            if (Filter.ibge != 0 && Filter.ibge != null)
+            {
+                predicate = predicate.And(x => x.CI_001_N == Filter.ibge);
+            }
+
+            if (!string.IsNullOrEmpty(Filter.Uf))
+            {
+                predicate = predicate.And(x => x.CI_002_C.Contains(Filter.Uf));
+            }
+
+            if (!string.IsNullOrEmpty(Filter.Cidade))
+            {
+                predicate = predicate.And(x => x.CI_003_C == Filter.Cidade);
+            }
+
+            if (Filter.Capital)
+            {
+                predicate = predicate.And(x => x.CI_004_L == Filter.Capital);
+            }
+
+            if (!string.IsNullOrEmpty(Filter.Longitude))
+            {
+                predicate = predicate.And(x => x.CI_005_C == Filter.Longitude);
+            }
+
+            if (!string.IsNullOrEmpty(Filter.Latitude))
+            {
+                predicate = predicate.And(x => x.CI_006_C == Filter.Latitude);
+            }
+
+            if (!string.IsNullOrEmpty(Filter.NomeSemAcento))
+            {
+                predicate = predicate.And(x => x.CI_007_C == Filter.NomeSemAcento);
+            }
+
+            if (!string.IsNullOrEmpty(Filter.NomeAlternativo))
+            {
+                predicate = predicate.And(x => x.CI_008_C == Filter.NomeAlternativo);
+            }
+
+            if (!string.IsNullOrEmpty(Filter.MicroRegiao))
+            {
+                predicate = predicate.And(x => x.CI_009_C == Filter.MicroRegiao);
+            }
+
+            if (!string.IsNullOrEmpty(Filter.RegiaoDistancia))
+            {
+                predicate = predicate.And(x => x.CI_010_C == Filter.RegiaoDistancia);
             }
 
             return predicate;

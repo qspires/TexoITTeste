@@ -23,10 +23,11 @@ namespace TexoITTeste.Models
             dbModelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
 
-        public EFContext() : base("TexoITTeste.Properties.Settings.DBConnect") { }
-        
+        //public EFContext() : base("TexoITTeste.Properties.Settings.DBConnect") { }
+        public EFContext() : base("DefaultConnection") { }
+
         public DateTime getDateTimeNow()
-        {
+        { 
             return this.Database.SqlQuery<DateTime>("select getdate()").FirstOrDefault<DateTime>();
         }
         #endregion

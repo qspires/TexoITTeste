@@ -113,7 +113,7 @@ namespace TexoITTeste.Manager
                     DaoCidade.Add(ModelAdd);
                 }
 
-                return Model;
+                return ModelAdd.toViewModel() ;
             }
             catch (DbEntityValidationException e)
             {
@@ -146,7 +146,6 @@ namespace TexoITTeste.Manager
             try
             {
                 daoCidade DaoCidade = new daoCidade();
-
                 DaoCidade.Delete(ukey);
             }
             catch (Exception ex)
@@ -253,6 +252,12 @@ namespace TexoITTeste.Manager
                    .ForEach(x => Model.CidadesPorEstado.Add(x));
                 Model.CidadesPorEstado = Model.CidadesPorEstado.OrderByDescending(x => x.Total).ToList();
 
+                Model.EstadoMaiorMenor.Add(Model.CidadesPorEstado.OrderByDescending(x => x.Total).ToList().First());
+                Model.EstadoMaiorMenor.Add(Model.CidadesPorEstado.OrderBy(x => x.Total).ToList().First());
+
+                //Model.EstadoMaiorMenor.Add(Model.CidadesPorEstado.GroupBy(x => new { x.Estado }).Select(x => new CidadesPorEstado { Estado = x.Key.Estado, Total = x.Max(z => z.Total) }).First());
+                //Model.EstadoMaiorMenor.Add(Model.CidadesPorEstado.GroupBy(x => new { x.Estado }).Select(x => new CidadesPorEstado { Estado = x.Key.Estado, Total = x.Min(z => z.Total) }).First());
+
 
                 Model.Capitais = ModelList.Where(x => x.CI_004_L == true).Select(x => x.toCapitais()).OrderBy(x => x.Cidade).ToList();
 
@@ -267,5 +272,53 @@ namespace TexoITTeste.Manager
             return Model;
         }
 
+        public List<CidadeViewModel> GetAll()
+        {
+            List<CidadeViewModel> Model = new List<CidadeViewModel>();
+            try
+            {
+                daoCidade DaoCidade = new daoCidade();
+
+                Model = DaoCidade.GetAll().OrderBy(x => x.CI_003_C).Select(x => x.toViewModel()).ToList();
+                return Model;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+
+        }
+
+        public List<CidadeViewModel> Get(CidadeViewModel Model)
+        {
+            try
+            {
+                List<CidadeViewModel> ModelList = new List<CidadeViewModel>();
+                daoCidade DaoCidade = new daoCidade();
+
+                DaoCidade.FindCidade(Model).OrderBy(x => x.CI_003_C).ToList().ForEach(x => ModelList.Add(x.toViewModel()));
+                return ModelList;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        public List<CidadeViewModel> GetAtributo(CidadeFilterModel Model)
+        {
+            try
+            {
+                List<CidadeViewModel> ModelList = new List<CidadeViewModel>();
+                daoCidade DaoCidade = new daoCidade();
+
+                DaoCidade.FindCidadeAtributo(Model).OrderBy(x => x.CI_003_C).ToList().ForEach(x => ModelList.Add(x.toViewModel()));
+                return ModelList;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
     }
 }

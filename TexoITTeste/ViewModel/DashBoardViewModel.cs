@@ -5,6 +5,7 @@ namespace TexoITTeste.ViewModel
     public class DashBoardViewModel
     {
         public List<CidadesPorEstado> CidadesPorEstado { get; set; } //
+        public List<CidadesPorEstado> EstadoMaiorMenor { get; set; } //
         public List<Capitais> Capitais { get; set; } //
         public int Total { get; set; } //
 
@@ -12,6 +13,7 @@ namespace TexoITTeste.ViewModel
         {
             this.CidadesPorEstado = new List<CidadesPorEstado>();
             this.Capitais = new List<Capitais>();
+            this.EstadoMaiorMenor = new List<CidadesPorEstado>();
         }
     }
 

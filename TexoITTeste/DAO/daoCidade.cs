@@ -63,6 +63,20 @@ namespace TexoITTeste.DAO
             }
         }
 
+        public List<CIDADE> FindCidadeAtributo(CidadeFilterModel Filter)
+        {
+            try
+            {
+                List<CIDADE> ListModel = dbs.Cidade.Where(Filter.ToExpression()).ToList();
+                return ListModel;
+            }
+            catch (Exception ex)
+            {
+                ex.Message.ToString();
+                return null;
+            }
+        }
+
         public List<CIDADE> GetAll()
         {
             try
