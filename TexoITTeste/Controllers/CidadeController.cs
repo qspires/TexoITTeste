@@ -211,7 +211,7 @@ namespace TexoITTeste.Controllers
 
                 model = mngCidade.DashBoard();
 
-                return Request.CreateResponse(HttpStatusCode.OK, model.CidadesPorEstado);
+                return Request.CreateResponse(HttpStatusCode.OK, model.Total);
             }
             catch (Exception ex)
             {

@@ -93,5 +93,22 @@ namespace TexoITTeste.Mapper
             model.CI_010_C = vmModel.CI_010_C ?? "";
             //return model;
         }
+
+
+        public static void toEdit(this CIDADE vmModel, CIDADE model)
+        {
+            //model.UKEY = fncBiblio.GetUkey();
+            model.CI_001_N = vmModel.CI_001_N;
+            model.CI_002_C = vmModel.CI_002_C ?? "";
+            model.CI_003_C = vmModel.CI_003_C ?? "";
+            model.CI_004_L = vmModel.CI_004_L;
+            model.CI_005_C = vmModel.CI_005_C ?? "";
+            model.CI_006_C = vmModel.CI_006_C ?? "";
+            model.CI_007_C = vmModel.CI_007_C ?? "";
+            model.CI_008_C = vmModel.CI_008_C ?? "";
+            model.CI_009_C = vmModel.CI_009_C ?? "";
+            model.CI_010_C = vmModel.CI_010_C ?? "";
+            //return model;
+        }
     }
 }

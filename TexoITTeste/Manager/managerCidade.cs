@@ -11,6 +11,7 @@ using TexoITTeste.Models;
 using System.Data.Entity.Validation;
 using TexoITTeste.DAO;
 using TexoITTeste.Mapper;
+using System.Web.Hosting;
 
 namespace TexoITTeste.Manager
 {
@@ -235,15 +236,15 @@ namespace TexoITTeste.Manager
 
             return null;
         }
-
-
+        
         public DashBoardViewModel DashBoard()
         {
             DashBoardViewModel Model = new DashBoardViewModel();
             try
             {
                 daoCidade DaoCidade = new daoCidade();
-                List<CIDADE> ModelList = DaoCidade.GetAll();
+
+                List <CIDADE> ModelList = DaoCidade.GetAll();
 
                 ModelList
                    .GroupBy(x => new { x.CI_002_C })
@@ -319,6 +320,37 @@ namespace TexoITTeste.Manager
             {
                 throw new Exception(ex.Message.ToString());
             }
+        }
+
+        public List<CIDADE> CarregaMemoria()
+        {
+
+            List<CIDADE> Cidade = new List<CIDADE>();
+            try
+            {
+                EFContext dbs = new EFContext();
+                if (!dbs.Connexao())
+                {
+                    string Caminho = HttpContext.Current.Server.MapPath("~/Arquivos/Cidades.json");
+                    string json = File.ReadAllText(Caminho);
+
+                    List<CidadeViewModel> Model = Newtonsoft.Json.JsonConvert.DeserializeObject<List<CidadeViewModel>>(json);
+
+                    Model.ForEach(x => Cidade.Add(x.toCreate()));
+
+                    return Cidade;
+                }
+                else
+                {
+                    return Cidade;
+                }
+            }
+            catch(Exception ex)
+            {
+                ex.Message.ToString();
+            }
+
+            return Cidade;
         }
     }
 }

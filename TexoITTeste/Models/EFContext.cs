@@ -24,11 +24,26 @@ namespace TexoITTeste.Models
         }
 
         //public EFContext() : base("TexoITTeste.Properties.Settings.DBConnect") { }
-        public EFContext() : base("DefaultConnection") { }
-
+        public EFContext() : base("Teste") { }
         public DateTime getDateTimeNow()
         { 
             return this.Database.SqlQuery<DateTime>("select getdate()").FirstOrDefault<DateTime>();
+        }
+
+        public bool Connexao()
+        {
+            try
+            {
+                //bool conexao = this.Database.Exists();
+                bool conexao = this.Database.Connection.State == System.Data.ConnectionState.Open;
+
+                return conexao;
+            }
+            catch(Exception ex)
+            {
+                ex.Message.ToString();
+                return false;
+            }
         }
         #endregion
     }

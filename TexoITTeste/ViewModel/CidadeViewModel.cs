@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using static TexoITTeste.Function.fncEnum;
 
 namespace TexoITTeste.ViewModel
 {
+    [Serializable]
     public class CidadeViewModel
     {
         public string UKEY { get; set; } //
