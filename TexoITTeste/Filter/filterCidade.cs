@@ -32,18 +32,14 @@ namespace TexoITTeste.Filter
 
                 if (!string.IsNullOrEmpty(Filter.CI_002_C))
                 {
-                    predicate = predicate.And(x => x.CI_002_C.Contains(Filter.CI_002_C));
+                    predicate = predicate.And(x => x.CI_002_C.ToUpper().ToString().Contains(Filter.CI_002_C.ToUpper().ToString()));
                 }
 
                 if (!string.IsNullOrEmpty(Filter.CI_003_C))
                 {
-                    predicate = predicate.And(x => x.CI_003_C.Contains(Filter.CI_003_C));
+                    predicate = predicate.And(x => x.CI_003_C.ToUpper().ToString().Contains(Filter.CI_003_C.ToUpper().ToString()));
                 }
 
-                if (!string.IsNullOrEmpty(Filter.CI_003_C))
-                {
-                    predicate = predicate.And(x => x.CI_003_C.Contains(Filter.CI_003_C));
-                }
             }
             else if (Filter.Tipo == fncEnum.eOperacao.Igual)
             {
@@ -55,19 +51,15 @@ namespace TexoITTeste.Filter
 
                 if (!string.IsNullOrEmpty(Filter.CI_002_C))
                 {
-                    predicate = predicate.And(x => x.CI_002_C == Filter.CI_002_C);
+                    predicate = predicate.And(x => x.CI_002_C.ToUpper().ToString() == Filter.CI_002_C.ToUpper().ToString());
                 }
 
                 if (!string.IsNullOrEmpty(Filter.CI_003_C))
                 {
-                    predicate = predicate.And(x => x.CI_003_C == Filter.CI_003_C);
+                    predicate = predicate.And(x => x.CI_003_C.ToUpper().ToString() == Filter.CI_003_C.ToUpper().ToString());
                 }
 
-                if (!string.IsNullOrEmpty(Filter.CI_003_C))
-                {
-                    predicate = predicate.And(x => x.CI_003_C == Filter.CI_003_C);
-                }
-            }
+                            }
 
             if (Filter.CI_004_N != fncEnum.eCapital.Ambos)
             {

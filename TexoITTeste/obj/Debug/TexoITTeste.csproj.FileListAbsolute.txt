@@ -67,3 +67,4 @@ D:\WorkSpace\TexoITTeste\TexoITTeste\bin\Microsoft.Owin.Security.Twitter.xml
 D:\WorkSpace\TexoITTeste\TexoITTeste\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\WorkSpace\TexoITTeste\TexoITTeste\obj\Debug\TexoITTeste.dll
 D:\WorkSpace\TexoITTeste\TexoITTeste\obj\Debug\TexoITTeste.pdb
+D:\WorkSpace\TexoITTeste\TexoITTeste\obj\Debug\TexoITTeste.csprojResolveAssemblyReference.cache
