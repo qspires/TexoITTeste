@@ -7,7 +7,7 @@ Foi usado Banco de dados LocalDB SqlServer para desenvolvimento.
 Foi usado Entity FrameWork com Linq.
 Usado o Padrão MVC.
 ```
-[Demo](http://texoitteste-com.umbler.net)
+[Demo](http://texoitteste-com.umbler.net) **Está dando erro memoria para deletar e editar por limitações do servidor.
 
 ## Como executar.
 ```
