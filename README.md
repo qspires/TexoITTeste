@@ -7,17 +7,19 @@ Foi usado Banco de dados LocalDB SqlServer para desenvolvimento.
 Foi usado Entity FrameWork com Linq.
 Usado o Padrão MVC.
 ```
-[Demo:] (http://texoitteste-com.umbler.net)
+[Demo](http://texoitteste-com.umbler.net)
 
-Como executar.
+## Como executar.
+```
 Basta baixar o Projeto e executar com visual studio. 
-Ao executar aplicação a mesma verificar se está usando banco de dados SQL Server e se o banco está criado. Senão será executado apenas os dados em memória.
-
+Ao executar aplicação a mesma verificar se está usando banco de dados SQL Server e se o banco está criado. 
+Senão será executado apenas os dados em memória.
+```
 Aplicação possui 
-1-	DashBoard com algumas informações;
-2-	Importação do CSV
-3-	CRUD
-4-	Documentação da API (Swagger ui)
+* DashBoard com algumas informações;
+* Importação do CSV
+* CRUD
+* Documentação da API (Swagger ui)
 
-Testar API.
-Ao abrir a documentação (através do link no menu) tem exemplos de testes e poderá executar os testes na própria aplicação,
+## Testar API.
+* Ao abrir a documentação (através do link no menu) tem exemplos de testes e poderá executar os testes na própria aplicação,
